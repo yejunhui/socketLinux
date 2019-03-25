@@ -5,7 +5,20 @@ import threading
 import os
 import json
 import struct
+from socketdata import sd
 
+print('Server start to prepare ...')
+
+host = '0.0.0.0'
+port = 1025
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.bind((host,port))
+s.listen(5)
+
+print('Server Open Successfully ...\nhost:%s\nport:%s'%(host,port))
+
+'''
 #data用于获得数据
 data =None
 filePath = 'F:/img/'
@@ -58,11 +71,15 @@ def tcps(sock, addr):
 
     except :
         print('%s异常退出！'%sock)
-
+'''
+def tcps(sock,addr):
+    her = s.recv(1024)
+    print(her.decode('utf-8'))
 
 while True:
     sock, addr = s.accept()
     t = threading.Thread(target=tcps, args=(sock, addr))
+    print('Open a new thread \n%s'%t)
     t.start()
 
 

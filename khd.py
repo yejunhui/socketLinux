@@ -9,8 +9,8 @@ filePath = 'F:/py/One/testfile/'
 filenaem = 'F:/py/One/testfile/400.pcm'
 #创建socket连接
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-host = '127.0.0.1'
-port = 1025
+host = 'wfdxe.applinzi.com'
+port = 5050
 s.connect((host,port))
 
 #读取文件
